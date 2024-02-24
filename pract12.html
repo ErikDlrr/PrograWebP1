@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta name="Erik Dlr" content="Actividad 2 UPSLP PgrW1">
+    <link rel="shortcut icon" href="https://www.upslp.edu.mx/upslp/wp-content/themes/icemagtheme/images/demo/favico.ico">
+    <title>El sistema solar</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            margin: 0 auto;
+            width: 75%;
+        }
+        th, td {
+            padding: 10px;
+            text-align: center;
+        }
+        iframe {
+            display: block;
+            margin: 0 auto;
+            width: 75%;
+            height: 500px;
+            border: none;
+        }
+        body {
+             background-color: rgb(0, 0, 0);
+             font-size: large;
+             text-align: center;
+             font-family: sans-serif;
+             color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>El sistema solar</h1>
+    <br>
+    <table>
+        <tr>
+            <td><img src="img/sol.jpg" width="50%" height="auto" onclick="showImage('img/sol.jpg')" alt="Imagen 1"></td>
+            <td><img src="img/marte.jpg" width="50%" height="auto" onclick="showImage('img/marte.jpg')" alt="Imagen 2"></td>
+            <td><img src="img/tierra.jpg" width="50%" height="auto" onclick="showImage('img/tierra.jpg')" alt="Imagen 3"></td>
+            <td><img src="img/jupiter.jpg" width="50%" height="auto" onclick="showImage('img/jupiter.jpg')" alt="Imagen 4"></td>
+        </tr>
+    </table>
+    <br>
+    <iframe id="imageFrame"></iframe>
+
+    <script>
+        function showImage(imageUrl) {
+            document.getElementById("imageFrame").src = imageUrl;
+        }
+    </script>
+</body>
+</html>
