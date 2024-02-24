@@ -35,7 +35,7 @@
 
     
     <header class="content header" id="quiensoy">
-        <h2 class="title">¿Quién soy?</h2>
+        <h2 class="title">¿Quien soy?</h2>
         <p>
             ¡Hola! Soy Erik, un entusiasta de la tecnología, la creatividad y el deporte. Desde muy joven, he encontrado curiosidad 
             en el mundo de la programación, explorando la manera en que el código puede dar vida a ideas innovadoras y soluciones prácticas.
@@ -131,12 +131,49 @@
         <article class="containt">
             <h2 class="title">Portafolio</h2>
             <p>
-                En esta seccion encontras mi portafolio de evidencias el cual esta dividido por parciales, solo presiona en uno de los parciales y te llevara a la ubicacion de dichas evidencias, si de pronto no encuentras nada, no te apures estoy actualizando constatemente los repositorios. 
+                En esta sección encontrarás mi portafolio de evidencias, el cual está dividido por parciales. Solo presiona en uno de los parciales y te llevará a la ubicación de dichas evidencias. Si de pronto no encuentras nada, no te apures, estoy actualizando constantemente los repositorios. 
             </p>
-            <a href="https://upslpedu-my.sharepoint.com/:f:/g/personal/177700_upslp_edu_mx/Er6-_k3-oAhFp_k-Gfc-wOcBP_BLWW11zFnGFeDqOu5G2Q?e=hbJ2IW" class="btn">Parcial 1</a>
-            <a href="https://upslpedu-my.sharepoint.com/:f:/g/personal/177700_upslp_edu_mx/ElvFR5nejghEuXI-PJu_eOABXU7xYpAy-KL01ScKVI6htQ?e=jHDvs6" class="btn">Parcial 2</a>
-            <a href="https://upslpedu-my.sharepoint.com/:f:/g/personal/177700_upslp_edu_mx/EvrcyF5-_i5Lr7aVLtfxHCkBrD_jyJTu0WOQn1G6nprl5w?e=8NheKk" class="btn">Parcial 3</a>
-            <a href="https://upslpedu-my.sharepoint.com/:f:/g/personal/177700_upslp_edu_mx/EgExcSxm4DtDmjmihgNPLIwB0iTDE2IkLdzwc-LBYKfQlQ?e=qOkAUd" class="btn">Proyecto final </a>
+
+            <a href="https://upslpedu-my.sharepoint.com/:f:/g/personal/177700_upslp_edu_mx/Er6-_k3-oAhFp_k-Gfc-wOcBP_BLWW11zFnGFeDqOu5G2Q?e=hbJ2IW" class="btn" onmouseover="showMenu('menu1')" onclick="hideMenu('menu1')">Parcial 1</a>
+
+            <div id="menu1" class="menu">
+                <a href="https://sitio1.com">Opción 1</a>
+                <a href="https://sitio2.com">Opción 2</a>
+                <a href="https://sitio3.com">Opción 3</a>
+                <a href="https://sitio4.com">Opción 4</a>
+                <a href="exam1.httml">Examen 1er Parcial 5</a>
+            </div>
+
+            <a href="https://upslpedu-my.sharepoint.com/:f:/g/personal/177700_upslp_edu_mx/ElvFR5nejghEuXI-PJu_eOABXU7xYpAy-KL01ScKVI6htQ?e=jHDvs6" class="btn" onmouseover="showMenu('menu2')" onclick="hideMenu('menu2')">Parcial 2</a>
+
+            <div id="menu2" class="menu">
+                <a href="https://sitio1.com">Opción 1</a>
+                <a href="https://sitio2.com">Opción 2</a>
+                <a href="https://sitio3.com">Opción 3</a>
+                <a href="https://sitio4.com">Opción 4</a>
+                <a href="https://sitio5.com">Opción 5</a>
+            </div>
+
+            <a href="https://upslpedu-my.sharepoint.com/:f:/g/personal/177700_upslp_edu_mx/EvrcyF5-_i5Lr7aVLtfxHCkBrD_jyJTu0WOQn1G6nprl5w?e=8NheKk" class="btn" onmouseover="showMenu('menu3')" onclick="hideMenu('menu3')">Parcial 3</a>
+
+            <div id="menu3" class="menu">
+                <a href="https://sitio1.com">Opción 1</a>
+                <a href="https://sitio2.com">Opción 2</a>
+                <a href="https://sitio3.com">Opción 3</a>
+                <a href="https://sitio4.com">Opción 4</a>
+                <a href="https://sitio5.com">Opción 5</a>
+            </div>
+
+            <a href="https://upslpedu-my.sharepoint.com/:f:/g/personal/177700_upslp_edu_mx/EgExcSxm4DtDmjmihgNPLIwB0iTDE2IkLdzwc-LBYKfQlQ?e=qOkAUd" class="btn" onmouseover="showMenu('menu4')" onclick="hideMenu('menu4')">Proyecto final</a>
+
+            <div id="menu4" class="menu">
+                <a href="https://sitio1.com">Opción 1</a>
+                <a href="https://sitio2.com">Opción 2</a>
+                <a href="https://sitio3.com">Opción 3</a>
+                <a href="https://sitio4.com">Opción 4</a>
+                <a href="https://sitio5.com">Opción 5</a>
+            </div>
+            
         </article>
 
     </section>
@@ -166,6 +203,20 @@
                 });
             });
         });
+    </script>
+
+    <script>
+        function showMenu(menuId) {
+            document.getElementById(menuId).style.display = "block";
+        }
+
+        function hideMenu(menuId) {
+            var menus = document.getElementsByClassName("menu");
+            for (var i = 0; i < menus.length; i++) {
+                menus[i].style.display = "none";
+            }
+            document.getElementById(menuId).style.display = "block";
+        }
     </script>
 
 </body>

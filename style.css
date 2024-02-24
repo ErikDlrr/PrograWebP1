@@ -162,6 +162,20 @@ p{
     background-size: cover ;
 }
 
+.menu {
+    display: none;
+    position: relative; 
+    background-color: #ffffff;
+    min-width: 120px;
+    box-shadow: 0px 8px 12px 0px rgba(0,0,0,0.2);
+    padding: 12px 16px;
+    z-index: 1;
+}
+
+.menu.active {
+    display: block;
+}
+
 .Contacto{
     display:block;
     justify-content: center;
@@ -174,3 +188,5 @@ p{
     background-size: cover ;
     
 }
+
+
