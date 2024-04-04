@@ -1,0 +1,30 @@
+.texto {
+    display: inline-block;
+    padding: 10px 20px;
+    color: #fff;
+    background-color: orange;
+    border: none;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    border-radius: 15px;
+    align-items: center;
+    margin: 40px;
+    height: auto;
+    width: 12%;
+    text-align: center;
+}
+
+.texto:hover {
+    background-color: #d9f00b;
+    color: grey;
+    font-style: italic;
+    transform: skewX(-20deg);
+}
+
+.texto:active {
+    background-color: #00ff15;
+    color: grey;
+    font-style: italic;
+    transform: skewX(-20deg);
+    }
