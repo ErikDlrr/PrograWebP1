@@ -1,0 +1,101 @@
+#logo {
+    display: block;
+    margin-top: 3%;
+    margin-left: 5%;
+    margin-bottom: 20px;
+    text-align: left;
+    font-size: 20px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-style: italic;
+}
+
+#barra ul {
+    display: flex;
+    justify-content: space-between;
+    padding: 0;
+    margin: 0;
+    width: 89%; 
+    margin-left: auto; 
+    margin-right: auto; 
+}
+
+.menu {
+    flex-grow: 1;
+    text-align: center;
+}
+
+.menu {
+    float: left;
+    align-items: center;
+    padding: 12px 105px;
+    text-decoration: none;
+    background-color: violet;
+    color: white;
+    border-radius: 3px;
+    list-style-type: none;
+   
+}
+
+.menu:hover {
+    background-color: #111;
+}
+
+p {
+    margin-left: 8%;
+    margin-right: 30%;
+    margin-top: 1%;
+    padding: 8px;
+    text-align: justify;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+}
+
+#der {
+    float: left;
+    width: 30%;
+    color: white;
+    padding: 10px;
+}
+
+#der h1 {
+    color: white;
+    background-color: violet;
+    padding: 10px;
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    max-width: 170px;
+}
+
+#der form input {
+    display: block;
+    margin-bottom: 10px;
+    color: white;
+    border: 1px solid rgb(0, 0, 0);
+    padding: 10px;
+}
+
+#der form input[type="submit"] {
+    background-color: violet;
+    color: white;
+    border: none;
+    padding: 10px; 
+    cursor: pointer;
+    width: 200px; 
+    font-size: 16px; 
+}
+
+article {
+    float: left;
+    width: 65%;
+}
+
+
+footer {
+    background-color: violet;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
