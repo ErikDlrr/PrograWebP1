@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navegacion</title>
+    <link rel="stylesheet" href="estilosCubanos.css">
+</head>
+
+<body>
+    <nav>
+
+        <button class="nav-btn" onclick="action()">Menu</button>
+
+        <a href="#nav-enlace" class="nav-enlace">Inicio</a>
+        <a href="#nav-enlace" class="nav-enlace">Nosotros</a>
+        <a href="#nav-enlace" class="nav-enlace">Servicios</a>
+        <a href="#nav-enlace" class="nav-enlace">Contacto</a>
+    </nav>
+
+    <script>
+        function action(){
+            var ancla= document.getElementsByClassName('nav-enlace');
+            for (var i = 0; i < ancla.length; i++) {
+                ancla[i].classList.toggle('desaparecer');
+            }   
+        }
+
+    </script>
+</body>
+
+</html>
