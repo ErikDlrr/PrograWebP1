@@ -1,6 +1,5 @@
 body {
     font-family: Arial, sans-serif;
-    background: lightcyan;
 }
 
 form {
@@ -12,16 +11,31 @@ label {
     margin-bottom: 0.5em;
 }
 
+.formu{
+    width: 100%;
+    margin: 0 auto;
+    border: 1px solid #ccc;
+    padding: 1em;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    background: lightgray;
+}
+
 input[type="text"] {
-    width: 65%;
+    width: 94%;
     padding: 0.5em;
-    margin-bottom: 1em;
+    margin-left: 2%;
+    margin-right: 2%;
+    margin-top: 2%;
 }
 
 input[type="submit"] {
     padding: 0.5em 1em;
-    width: 66.5%;
-    background-color: #007BFF;
+    width: 95%;
+    margin-left: 2%;
+    margin-right: 2%;
+    margin-top: 2%;
+    background-color: salmon;
     color: white;
     border: none;
     cursor: pointer;
