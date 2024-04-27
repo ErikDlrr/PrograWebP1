@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Obtener totales del formulario</title>
+	<link rel="stylesheet" href="stilos35.css">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<link href="https://fonts.googleapis.com/css?family=Charmonman" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
+	<script type="text/javascript" src="js/jquery/jquery-1.7.1.min.js"></script>
+	<script type="text/javascript" src="js/jquery/jquery-ui-1.8.17.custom.min.js"></script>
+	<script type="text/javascript" src="jspdf.js"></script>
+	<script type="text/javascript" src="jspdf.plugin.addimage.js"></script>
+	<script type="text/javascript" src="jspdf.plugin.standard_fonts_metrics.js"></script>
+	<script type="text/javascript" src="jspdf.plugin.split_text_to_size.js"></script>
+	<script type="text/javascript" src="jspdf.plugin.from_html.js"></script>
+</head>
+<script>
+	var total;
+	function califica() {
+		total = 0; 
+		for (var x = 1; x <= 4; x++) {
+			var res = 0;
+			var nom = "r" + x;
+			var resul = document.getElementsByName(nom);
+			for (var i = 0; i < resul.length; i++) {
+				if (resul[i].checked == true)
+					res = parseInt(resul[i].value);
+			}
+			total = total + res;
+		}
+		document.getElementById("total").innerHTML = "Puntos obtenidos: " + total + " Puntos";
+
+		if (total == 20)
+			document.getElementById("comentario").innerHTML = "EXCELENTE!!!";
+		else if (total >= 15)
+			document.getElementById("comentario").innerHTML = "Regular!!";
+		else
+			document.getElementById("comentario").innerHTML = "Estudia un poco más";
+	}
+
+
+	function generar() {
+
+		//Crear un objeto o instancia jsPDF
+		var doc = new jsPDF();
+
+		//Definir el tamaño de la letra
+		doc.setFontSize(40);
+		//Color del texto
+		doc.setTextColor(9, 7, 121);
+		doc.text(40, 20, "Conceptos basicos");
+		doc.setTextColor(17, 122, 209); //Color en formato RGB
+		doc.setFontSize(30);
+		doc.text(50, 35, "Resultados del test"); //Ubicación, Texto
+		doc.setTextColor(0, 0, 0);
+		doc.setFontSize(10);
+		doc.text(20, 50, "20 puntos. Muy bien. \r Todas tus respuestas son correctas");
+		doc.text(20, 70, "15 puntos. Regular. \r Obtuviste 2 preguntas correctas");
+		doc.text(20, 90, "0 puntos. \r Todas tus respuestas son incorrectas");
+
+		//doc.addImage(imgData, 'JPEG', 10, 40, 180, 180);
+
+		var string = doc.output('datauristring');
+
+		$('iframe').attr('src', string);
+
+	}
+</script>
+
+<body>
+	<div id="contiene">
+		<h1>Responde el quizz</h1>
+		<h2>y pon a prueba tus conocimientos</h2>
+		<div>
+			<form>
+				<ul>
+
+					<li>Pregunta 1: ¿Cuál es la capital de Francia?</li>
+					<input type="radio" name="r1" id="r1" value="5" />París<br />
+					<input type="radio" name="r1" id="r1" value="0" />Londres<br />
+					<input type="radio" name="r1" id="r1" value="0" />Madrid<br />
+					<input type="radio" name="r1" id="r1" value="0" />Roma<br />
+
+					<li>Pregunta 2: ¿Cuál es el río más largo del mundo?</li>
+					<input type="radio" name="r2" id="r2" value="0" />Nilo<br />
+					<input type="radio" name="r2" id="r2" value="0" />Yangtsé<br />
+					<input type="radio" name="r2" id="r2" value="5" />Amazonas<br />
+					<input type="radio" name="r2" id="r2" value="0" />Misisipi<br />
+
+					<li>Pregunta 3: ¿Cuál es el planeta más grande del sistema solar?</li>
+					<input type="radio" name="r3" id="r3" value="0" />Marte<br />
+					<input type="radio" name="r3" id="r3" value="0" />Venus<br />
+					<input type="radio" name="r3" id="r3" value="5" />Júpiter<br />
+					<input type="radio" name="r3" id="r3" value="0" />Saturno<br />
+
+					<li>Pregunta 4: ¿Cuál es el animal terrestre más rápido?</li>
+					<input type="radio" name="r4" id="r4" value="5" />Guepardo<br />
+					<input type="radio" name="r4" id="r4" value="0" />León<br />
+					<input type="radio" name="r4" id="r4" value="0" />Elefante<br />
+					<input type="radio" name="r4" id="r4" value="0" />Tortuga<br />
+				</ul>
+			</form>
+		</div>
+		<input type="button" value="Calificar" onclick="califica()">
+		<p></p>
+		<p id="total"> </p>
+		<p id="comentario"> </p>
+		<input type="button" onclick="generar()" value="Ver resultados" /> <br />
+		<iframe frameborder="0" width="600" height="500"></iframe>
+	</div>
+</body>
+
+</html>
