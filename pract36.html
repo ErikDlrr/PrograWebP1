@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <title>Ejemplo Equipo 1</title>
+        <meta name="Erik Dlr" content= "Js Validation">
+        <meta charset="utf-8">
+        <title>Javascript Validation</title>
+    </head>
+<body>
+    <h2>Javascript Validation</h2>
+
+    <p>Ingresa un numero</p>
+    <input id="id1" type="number" min = "100" max = "300" required>
+    <button onclick="Maxin()">Enviar</button>
+
+    <p> Si el numero es mas chica que 100 o mas grande que 300, se mostrara un mensaje de error</p>
+    
+    <p id="dem"></p>
+    <br><br><br>
+
+    <p>Ingresa un numero</p>
+    <input id="id2" type="number" max = "100" required>
+    <button onclick="soloMax()">Enviar</button>
+    <br><br><br>
+    <p> Si el numero es mas grande que 100, se mostrara un mensaje de error</p>
+
+    <p id="demo"></p><br><br><br>
+    <p>Ingresa un numero</p>
+    <input id="id3" type="number" min = "100" required>
+    <button onclick="MyFuncion()">Enviar</button>
+
+    <p id = "dem1"></p>
+    <p> Si el numero es mas chica que 100, se mostrara un mensaje de error</p>
+
+    <script>
+        function Maxin(){
+            var x, text;
+            x = document.getElementById("id1").value;
+            if(x == "" || isNaN(x) || x < 100 || x > 300){
+                text = "Input not valid";
+            }else{
+                text = "Input OK";
+            }
+            document.getElementById("dem").innerHTML = text;
+        }
+
+        function soloMax(){
+            var x, text;
+            x = document.getElementById("id2").value;
+            if(x == "" || isNaN(x) || x > 100){
+                text = "Input not valid";
+            }else{
+                text = "Input OK";
+            }
+            document.getElementById("demo").innerHTML = text;
+        }
+
+        function MyFuncion(){
+            var x, text;
+            x = document.getElementById("id3").value;
+            if(x == "" || isNaN(x) || x < 100){
+                text = "Input not valid";
+            }else{
+                text = "Input OK";
+            }
+            document.getElementById("dem1").innerHTML = text;
+        }
+    </script>
+
+
+
+</body>
+</html>
