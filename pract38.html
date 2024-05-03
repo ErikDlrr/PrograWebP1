@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>API de Historial Web</title>
+</head>
+<body>
+    <button id="pushState">Agregar Estado</button>
+    <button id="replaceState">Reemplazar Estado</button>
+    <button id="goBack">Retroceder</button>
+    <button id="goForward">Avanzar</button>
+
+    <script>
+        document.getElementById('pushState').addEventListener('click', function() {
+            history.pushState({page: 1}, "título 1", "?page=1");
+        });
+
+        document.getElementById('replaceState').addEventListener('click', function() {
+            history.replaceState({page: 2}, "título 2", "?page=2");
+        });
+
+        document.getElementById('goBack').addEventListener('click', function() {
+            history.back();
+        });
+
+        document.getElementById('goForward').addEventListener('click', function() {
+            history.forward();
+        });
+
+        window.addEventListener("popstate", function(event) {
+            if(event.state) {
+                alert("Estado de la página: " + event.state.page);
+            }
+        });
+    </script>
+</body>
+</html>
