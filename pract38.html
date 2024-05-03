@@ -7,7 +7,8 @@
 
 <body>
     <h1>API de Historial Web</h1>
-    <p>Presiona los botones para agregar o reemplazar un estado en el historial de navegación, retroceder o avanzar en el historial, o para obtener la longitud del historial y las URLs visitadas.</p>
+    <p>Presiona los botones para agregar o reemplazar un estado en el historial de navegación, retroceder o avanzar en
+        el historial, o para obtener la longitud del historial y las URLs visitadas.</p>
     <p>Abre la consola del navegador para ver los mensajes de registro.</p>
     <p>Nota: La API de Historial Web no está disponible en todos los navegadores.</p>
 
@@ -16,35 +17,44 @@
     <button id="replaceState">Reemplazar Estado</button>
     <button id="goBack">Retroceder</button>
     <button id="goForward">Avanzar</button>
-    <button onclick="myFunction1()">Go Back</button>
-    <button onclick="myFunction2()">Go Back 2 Pages</button>
+    <button onclick="myFunction1()">Regresar</button>
+    <button onclick="myFunction2()">Regresar 2 Paginas</button>
+    <br>
+    <p id="mensaje"></p>
 
 
 
     <script>
-        
-        document.getElementById('pushState').addEventListener('click', function () {
-            history.pushState({ page: 1 }, "título 1", "?page=1");
-        });
 
+        //Asignar un evento de clic al botón con id 'replaceState'
         document.getElementById('replaceState').addEventListener('click', function () {
+            // Reemplazar el estado actual del historial con un nuevo estado
             history.replaceState({ page: 2 }, "título 2", "?page=2");
         });
 
+        //Asignar un evento de clic al botón con id 'goBack' 
         document.getElementById('goBack').addEventListener('click', function () {
+            // Navegar una entrada atrás en el historial
             history.back();
         });
 
+        // Asignar un evento de clic al botón con id 'goForward'
         document.getElementById('goForward').addEventListener('click', function () {
+            // Navegar una entrada adelante en el historial
             history.forward();
         });
 
+        // Escuchar el evento 'popstate', que se dispara cuando el estado del historial cambia
         window.addEventListener("popstate", function (event) {
+            // Si hay un estado asociado con la entrada actual del historial, mostrarlo
             if (event.state) {
                 alert("Estado de la página: " + event.state.page);
             }
         });
 
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+        // Comprobar si la API de Historial Web está disponible
         if (window.history && window.history.length) {
             // Obtener el historial de navegación
             var historyArray = window.history;
@@ -53,6 +63,7 @@
             console.log("Longitud del historial:", historyArray.length);
 
             // Iterar sobre el historial e imprimir las URLs visitadas
+            // Nota: Esto no funcionará en la mayoría de los navegadores por razones de seguridad
             for (var i = 0; i < historyArray.length; i++) {
                 console.log("URL visitada:", historyArray[i]);
             }
@@ -60,13 +71,31 @@
             console.log("La Web History API no está disponible en este navegador.");
         }
 
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+        // Función que navega una entrada atrás en el historial
         function myFunction1() {
             window.history.back();
         }
 
+        // Función que navega dos entradas atrás en el historial
         function myFunction2() {
             window.history.go(-2);
         }
+
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+        if (window.location.href.indexOf('?page=2') > -1) {
+            // Si la URL contiene '?page=2', mostrar algo en el HTML
+            document.getElementById('mensaje').innerText = "Estás en la página 2.";
+        }
+
+        if (window.location.href.indexOf('?page=1') > -1) {
+            // Si la URL contiene '?page=2', mostrar algo en el HTML
+            document.getElementById('mensaje').innerText = "Estás en la página 1.";
+        }
+
+        
 
     </script>
 </body>
