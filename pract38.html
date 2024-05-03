@@ -6,23 +6,21 @@
 </head>
 
 <body>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
     <h1>API de Historial Web</h1>
-    <p>Presiona los botones para agregar o reemplazar un estado en el historial de navegación, retroceder o avanzar en
-        el historial, o para obtener la longitud del historial y las URLs visitadas.</p>
+    <p> Presiona los botones para navegar hacia atrás en el historial del navegador.</p>
     <p>Abre la consola del navegador para ver los mensajes de registro.</p>
     <p>Nota: La API de Historial Web no está disponible en todos los navegadores.</p>
 
     <br><br>
-    <button id="pushState">Agregar Estado</button>
-    <button id="replaceState">Reemplazar Estado</button>
-    <button id="goBack">Retroceder</button>
-    <button id="goForward">Avanzar</button>
-    <button onclick="myFunction1()">Regresar</button>
-    <button onclick="myFunction2()">Regresar 2 Paginas</button>
+    <nav>
+        <button onclick="myFunction1()">Regresar</button>
+        <button onclick="myFunction2()">Regresar 2 Paginas</button>
+    </nav>
+
     <br>
     <p id="mensaje"></p>
 
-    <br><br><br><br><br><br><br><br>
 
     <div id="imageGallery">
         <img src="img/20201106_111941.jpg" alt="Image 1">
@@ -31,45 +29,61 @@
         <img src="img/20201106_112254.jpg" alt="Image 4">
         <img src="img/20201106_112321.jpg" alt="Image 5">
     </div>
+    <nav>
+        <button id="prevImage">Imagen anterior</button>
+        <button id="nextImage">Imagen siguiente</button>
+    </nav>
 
-    <button id="prevImage">Imagen anterior</button>
-    <button id="nextImage">Imagen siguiente</button>
 
     <style>
+        body {
+            background-color: black;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        #imageGallery {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            gap: 10px;
+        }
+
         #imageGallery img {
-            width: 30%;
+            width: 23%;
+            border: 3px solid white;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: white;
+            color: black;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        
+        button:hover {
+            background-color: #d6d6d6;
+            color: black;
         }
     </style>
 
     <script>
 
-        //Asignar un evento de clic al botón con id 'replaceState'
-        document.getElementById('replaceState').addEventListener('click', function () {
-            // Reemplazar el estado actual del historial con un nuevo estado
-            history.replaceState({ page: 2 }, "título 2", "?page=2");
-        });
-
-        //Asignar un evento de clic al botón con id 'goBack' 
-        document.getElementById('goBack').addEventListener('click', function () {
-            // Navegar una entrada atrás en el historial
-            history.back();
-        });
-
-        // Asignar un evento de clic al botón con id 'goForward'
-        document.getElementById('goForward').addEventListener('click', function () {
-            // Navegar una entrada adelante en el historial
-            history.forward();
-        });
-
-        // Escuchar el evento 'popstate', que se dispara cuando el estado del historial cambia
-        window.addEventListener("popstate", function (event) {
-            // Si hay un estado asociado con la entrada actual del historial, mostrarlo
-            if (event.state) {
-                alert("Estado de la página: " + event.state.page);
-            }
-        });
-
-        /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
         // Comprobar si la API de Historial Web está disponible
         if (window.history && window.history.length) {
@@ -98,18 +112,6 @@
         // Función que navega dos entradas atrás en el historial
         function myFunction2() {
             window.history.go(-2);
-        }
-
-        /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-        if (window.location.href.indexOf('?page=2') > -1) {
-            // Si la URL contiene '?page=2', mostrar algo en el HTML
-            document.getElementById('mensaje').innerText = "Estás en la página 2.";
-        }
-
-        if (window.location.href.indexOf('?page=1') > -1) {
-            // Si la URL contiene '?page=2', mostrar algo en el HTML
-            document.getElementById('mensaje').innerText = "Estás en la página 1.";
         }
 
         /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
