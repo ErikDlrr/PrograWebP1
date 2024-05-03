@@ -22,7 +22,24 @@
     <br>
     <p id="mensaje"></p>
 
+    <br><br><br><br><br><br><br><br>
 
+    <div id="imageGallery">
+        <img src="img/20201106_111941.jpg" alt="Image 1">
+        <img src="img/20201106_112004.jpg" alt="Image 2">
+        <img src="img/20201106_112017.jpg" alt="Image 3">
+        <img src="img/20201106_112254.jpg" alt="Image 4">
+        <img src="img/20201106_112321.jpg" alt="Image 5">
+    </div>
+
+    <button id="prevImage">Imagen anterior</button>
+    <button id="nextImage">Imagen siguiente</button>
+
+    <style>
+        #imageGallery img {
+            width: 30%;
+        }
+    </style>
 
     <script>
 
@@ -95,7 +112,44 @@
             document.getElementById('mensaje').innerText = "Estás en la página 1.";
         }
 
-        
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        let images = document.querySelectorAll('#imageGallery img');
+        let currentIndex = 0;
+
+        // Muestra la imagen actual
+        function showImage(index) {
+            for (let i = 0; i < images.length; i++) {
+                images[i].style.display = i === index ? 'block' : 'none';
+            }
+            history.pushState({ index }, `Image ${index}`, `?image=${index}`);
+        }
+
+        // Asignar un evento de clic al botón 'prevImage'
+        document.getElementById('prevImage').addEventListener('click', function () {
+            if (currentIndex > 0) {
+                currentIndex--;
+                showImage(currentIndex);
+            }
+        });
+
+        // Asignar un evento de clic al botón 'nextImage'
+        document.getElementById('nextImage').addEventListener('click', function () {
+            if (currentIndex < images.length - 1) {
+                currentIndex++;
+                showImage(currentIndex);
+            }
+        });
+
+        // Escuchar el evento 'popstate', que se dispara cuando el estado del historial cambia
+        window.addEventListener("popstate", function (event) {
+            if (event.state) {
+                currentIndex = event.state.index;
+                showImage(currentIndex);
+            }
+        });
+
+        // Inicializar la galería mostrando la primera imagen
+        showImage(0);
 
     </script>
 </body>
