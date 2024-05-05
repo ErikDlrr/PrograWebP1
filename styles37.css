@@ -1,0 +1,52 @@
+.carousel {
+    /* Establece la posición del carrusel en la página y limita su ancho máximo */
+  position: relative;
+  max-width: 600px;
+  margin: auto;
+  overflow: hidden;
+  transition: opacity 0.5s ease-in-out;
+}
+
+
+.carousel-content {
+    /* Establece la disposición de los elementos de la lista de imágenes */
+  display: flex;
+}
+
+.carousel-content img {
+    /* Establece el ancho de las imágenes */
+  width: 100%;
+  display: none;
+}
+
+.carousel-content img.active {
+    /* Muestra la imagen activa */
+  display: block;
+}
+
+button {
+    /* Establece la posición de los botones */
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out;
+}
+
+button:hover {
+    /* Cambia el color de fondo de los botones al pasar el ratón por encima */
+  background: rgba(0, 0, 0, 0.8);
+}
+
+#prevBtn {
+  left: 0;
+}
+
+#nextBtn {
+  right: 0;
+}
+
