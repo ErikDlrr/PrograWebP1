@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="Erik De La Rosa Rdz">
+    <title>Palindromo</title>
+    <link rel="stylesheet" type="text/css" href="estiloExa3.css">
+    <script type="text/javascript">
+        // Definición de la función palindromo
+        function palindromo() {
+            // Obtiene el valor del elemento con id 'cadena'
+            var cadena = document.getElementById('cadena').value;
+
+            // Inicializa la variable resultado con la cadena ingresada
+            var resultado = "La frase \"" + cadena + "\" \n";
+
+            // Convierte la cadena a minúsculas para hacer la comparación de palíndromo sin importar mayúsculas
+            
+            var cadenaOriginal = cadena.toLowerCase();
+
+            // Divide la cadena en un array de caracteres
+            var letrasEspacios = cadenaOriginal.split("");
+
+            // Inicializa una cadena vacía para almacenar la cadena sin espacios
+            var cadenaSinEspacios = "";
+
+            // Recorre el array de caracteres y agrega cada carácter a cadenaSinEspacios si no es un espacio
+            for (i in letrasEspacios) {
+                if (letrasEspacios[i] != " ") {
+                    cadenaSinEspacios += letrasEspacios[i];
+                }
+            }
+
+            // Divide la cadena sin espacios en un array de caracteres
+            var letras = cadenaSinEspacios.split("");
+
+            // Crea un array de caracteres en orden inverso a partir de la cadena sin espacios
+            var letrasReves = cadenaSinEspacios.split("").reverse();
+
+            // Inicializa una variable booleana en true para verificar si la cadena es un palíndromo
+            var iguales = true;
+
+            // Compara cada carácter de la cadena con el carácter correspondiente en la cadena invertida
+            for (i in letras) {
+                if (letras[i] != letrasReves[i]) {
+                    // Si algún carácter no coincide, establece iguales en false y termina el bucle
+                    iguales = false;
+                }
+            }
+
+            // Si la cadena es un palíndromo, agrega " es un palíndromo" a la variable resultado
+            if (iguales) {
+                resultado += " es un palíndromo";
+            }
+            // Si no es un palíndromo, agrega " no es un palíndromo" a la variable resultado
+            else {
+                resultado += " no es un palíndromo";
+            }
+
+            // Muestra el resultado en el elemento con id 'resultado' (un párrafo en el HTML)
+            document.getElementById('resultado').innerText = resultado;
+        }
+    </script>
+</head>
+
+<body>
+    <form>
+        <input type="text" id="cadena">
+        <button type="button" onclick="palindromo()">Verificar</button>
+    </form>
+    <br>
+    <p id="resultado"></p>
+</body>
+
+</html>
